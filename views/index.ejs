@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+<main>
+    <section class="hero">
+        <img class="quote" src="images/quote-icon.png">
+        <h2 class="hero-title">Share Your Voice</h2>
+        <p class="hero-message">Welcome to the WriteSpace—where every voice matters and every story inspires.</p>
+        <a class="newPostButton" href="/new"> New Post</a>
+    </section>
+
+    <section class="recent-posts" >
+        <ul class="post-list">
+            <% if(locals.posts){ %>
+               <% for (let i = posts.length - 1; i >=0; i--) { %> 
+                <li class="post">
+                    <a class="post-title" href="/view/<%= posts[i].id %>"><%= posts[i].title %></a>
+                    <small class="post-small"><%= posts[i].date%></small>
+                    <p class="post-body"><%= posts[i].description%></p>
+                    <small class="post-small">By: <%= posts[i].author%></small>
+                    <div>
+                        <a class="edit-btn" href="/edit/<%= posts[i].id %>">Edit</a>
+                        <a class="delete-btn" href="/api/posts/delete/<%= posts[i].id %>">Delete</a>
+                    </div>
+                </li>    
+                <% }; %>
+            <%} else {%>
+                <p class="no-posts">No Posts Yet</p> 
+            <% }%>
+        </ul>
+    </section>
+</main>
+
+
+<%- include("partials/footer.ejs") %>

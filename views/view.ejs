@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+
+
+<section class="view-page">
+    <div class="viewContainer">
+        <div class="viewActionButtons">
+            <a class="edit-btn" href="/edit/<%= post.id %>">Edit</a>
+            <a class="delete-btn" href="/api/posts/delete/<%= post.id %>">Delete</a>
+        </div>  
+        <h2 class="post-title"><%= post.title %></h2>
+        <small class="post-small"><%= post.date%></small>
+        <p style="white-space: pre-line;"><%= post.content%></p>
+        <small class="post-small">By: <%= post.author%></small>
+    </div>
+</section>
+
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,44 @@
+<%- include("partials/header.ejs") %>
+
+
+<section class="modify-post">
+    <div class="formContainer">
+        <h1 class="modify-page-title"><%= heading %></h1>
+        <% if(locals.post) { %>
+            <form id ='editForm' method="post" action="/api/posts/<%=post.id%>" >
+                <label for="title">Title:</label>
+                <input class="title-input" id="title" type="text"  name="title" value="<%= post.title %>">
+        
+                <label for="description">Description:</label>
+                <input class="description-input" id="description" type="text"  name="description" value="<%= post.description %>">
+        
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="20"><%= post.content %></textarea>
+        
+                <label for="author">Author:</label>
+                <input class="author-input" id="author" type="text"  name="author" value="<%= post.author %>">
+                
+                <button class="post-btn" type="submit"><%= submit %></button>
+            </form>    
+        <% } else {%>
+            <form id ='newPostForm' method="post" action="/api/posts/" >
+                <label for="title">Title:</label>
+                <input class="title-input" id="title" type="text"  name="title" required>
+        
+                <label for="description">Description:</label>
+                <input class="description-input" id="description" type="text"  name="description" required>
+        
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="20" required></textarea>
+        
+                <label for="author">Author:</label>
+                <input class="author-input" id="author" type="text"  name="author" required>
+                
+                <button class="post-btn" type="submit"><%= submit %></button>
+            </form>    
+        <% } %>    
+    </div>
+</section>
+
+
+<%- include("partials/footer.ejs") %>

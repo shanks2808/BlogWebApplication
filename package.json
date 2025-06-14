@@ -1,0 +1,22 @@
+{
+  "name": "s30-blog-web-app-revisited",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"node index.js\" \"node server.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "body-parser": "^1.20.3",
+    "concurrently": "^9.1.2",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "uuid": "^11.0.3"
+  }
+}
